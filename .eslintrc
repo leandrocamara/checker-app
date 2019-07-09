@@ -11,6 +11,7 @@
     ],
     "jsx-quotes": 1,
     "linebreak-style": [2, "windows"],
+    "no-console": 0,
     "quotes": [2, "single"],
     "react/display-name": 1,
     "react/forbid-prop-types": 0,

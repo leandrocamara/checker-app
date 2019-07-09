@@ -23,9 +23,6 @@ import {
 // Material icons
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
-// Shared components
-import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons';
-
 // Component styles
 import styles from './styles';
 
@@ -33,13 +30,7 @@ import styles from './styles';
 import schema from './schema';
 
 // Service methods
-const signIn = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(true);
-    }, 1500);
-  });
-};
+import { signIn } from 'services/login';
 
 class SignIn extends Component {
   state = {
@@ -60,12 +51,18 @@ class SignIn extends Component {
     submitError: null
   };
 
+  /**
+   * Redireciona para a página anterior (referente ao histórico).
+   */
   handleBack = () => {
     const { history } = this.props;
 
     history.goBack();
   };
 
+  /**
+   * Valida o formulário.
+   */
   validateForm = _.debounce(() => {
     const { values } = this.state;
 
@@ -78,6 +75,12 @@ class SignIn extends Component {
     this.setState(newState);
   }, 300);
 
+  /**
+   * Atualiza o estado do campo alterado.
+   *
+   * @param field string
+   * @param value any
+   */
   handleFieldChange = (field, value) => {
     const newState = { ...this.state };
 
@@ -88,6 +91,9 @@ class SignIn extends Component {
     this.setState(newState, this.validateForm);
   };
 
+  /**
+   * Envia os dados para autenticação do usuário.
+   */
   handleSignIn = async () => {
     try {
       const { history } = this.props;
@@ -131,29 +137,29 @@ class SignIn extends Component {
           <Grid
             className={classes.quoteWrapper}
             item
-            lg={5}
+            lg={6}
           >
             <div className={classes.quote}>
               <div className={classes.quoteInner}>
                 <Typography
                   className={classes.quoteText}
-                  variant="h1"
+                  variant="h3"
                 >
-                  Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
-                  they sold out High Life.
+                  "A melhor! É fácil de usar e os resultados são ótimos. Tudo funciona perfeitamente.
+                  Nós conseguimos reduzir as reclamações sobre e-mails de marketing e falsos registros."
                 </Typography>
                 <div className={classes.person}>
                   <Typography
                     className={classes.name}
                     variant="body1"
                   >
-                    Takamaru Ayako
+                    Julián Pérez
                   </Typography>
                   <Typography
                     className={classes.bio}
                     variant="body2"
                   >
-                    Manager at inVision
+                    Diretor na EIVOS
                   </Typography>
                 </div>
               </div>
@@ -162,7 +168,7 @@ class SignIn extends Component {
           <Grid
             className={classes.content}
             item
-            lg={7}
+            lg={6}
             xs={12}
           >
             <div className={classes.content}>
@@ -181,37 +187,6 @@ class SignIn extends Component {
                     variant="h2"
                   >
                     Sign in
-                  </Typography>
-                  <Typography
-                    className={classes.subtitle}
-                    variant="body1"
-                  >
-                    Sign in with social media
-                  </Typography>
-                  <Button
-                    className={classes.facebookButton}
-                    color="primary"
-                    onClick={this.handleSignIn}
-                    size="large"
-                    variant="contained"
-                  >
-                    <FacebookIcon className={classes.facebookIcon} />
-                    Login with Facebook
-                  </Button>
-                  <Button
-                    className={classes.googleButton}
-                    onClick={this.handleSignIn}
-                    size="large"
-                    variant="contained"
-                  >
-                    <GoogleIcon className={classes.googleIcon} />
-                    Login with Google
-                  </Button>
-                  <Typography
-                    className={classes.sugestion}
-                    variant="body1"
-                  >
-                    or login with email address
                   </Typography>
                   <div className={classes.fields}>
                     <TextField

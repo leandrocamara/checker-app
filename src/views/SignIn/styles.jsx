@@ -46,7 +46,7 @@ export default theme => ({
   contentHeader: {
     display: 'flex',
     alignItems: 'center',
-    paddingTop: theme.spacing.unit * 5,
+    paddingTop: theme.spacing.unit * 7,
     paddingBototm: theme.spacing.unit * 2,
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2
