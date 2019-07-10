@@ -33,16 +33,10 @@ import styles from './styles';
 // Form validation schema
 import schema from './schema';
 
-validate.validators.checked = validators.checked;
-
 // Service methods
-const signUp = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(true);
-    }, 1500);
-  });
-};
+import { signUp } from 'services/user';
+
+validate.validators.checked = validators.checked;
 
 class SignUp extends Component {
   state = {
@@ -72,17 +66,23 @@ class SignUp extends Component {
     submitError: null
   };
 
+  /**
+   * Redireciona para a página anterior (referente ao histórico).
+   */
   handleBack = () => {
     const { history } = this.props;
 
     history.goBack();
   };
 
+  /**
+   * Valida o formulário.
+   */
   validateForm = _.debounce(() => {
     const { values } = this.state;
 
     const newState = { ...this.state };
-    const errors = validate(values, schema);
+    const errors = validate(values, schema, { fullMessages: false });
 
     newState.errors = errors || {};
     newState.isValid = errors ? false : true;
@@ -90,6 +90,12 @@ class SignUp extends Component {
     this.setState(newState);
   }, 300);
 
+  /**
+   * Atualiza o estado do campo alterado.
+   *
+   * @param field string
+   * @param value any
+   */
   handleFieldChange = (field, value) => {
     const newState = { ...this.state };
 
@@ -100,6 +106,9 @@ class SignUp extends Component {
     this.setState(newState, this.validateForm);
   };
 
+  /**
+   * Envia os dados para cadastro do usuário.
+   */
   handleSignUp = async () => {
     try {
       const { history } = this.props;
@@ -154,29 +163,29 @@ class SignUp extends Component {
           <Grid
             className={classes.quoteWrapper}
             item
-            lg={5}
+            lg={6}
           >
             <div className={classes.quote}>
               <div className={classes.quoteInner}>
                 <Typography
                   className={classes.quoteText}
-                  variant="h1"
+                  variant="h3"
                 >
-                  Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
-                  they sold out High Life.
+                  "Ferramenta boa e prática. O API fácil de usar, o ótimo widget de formulário e a
+                  interface simples tornam essa ferramenta um grande achado. E o preço é muito bom também!"
                 </Typography>
                 <div className={classes.person}>
                   <Typography
                     className={classes.name}
                     variant="body1"
                   >
-                    Takamaru Ayako
+                    Jon Mae
                   </Typography>
                   <Typography
                     className={classes.bio}
                     variant="body2"
                   >
-                    Manager at inVision
+                    Especialista em Marketing Digital na Inbox Hero
                   </Typography>
                 </div>
               </div>
@@ -185,7 +194,7 @@ class SignUp extends Component {
           <Grid
             className={classes.content}
             item
-            lg={7}
+            lg={6}
             xs={12}
           >
             <div className={classes.content}>
@@ -200,21 +209,20 @@ class SignUp extends Component {
               <div className={classes.contentBody}>
                 <form className={classes.form}>
                   <Typography
-                    className={classes.title}
                     variant="h2"
                   >
-                    Create new account
+                    Criar uma conta
                   </Typography>
                   <Typography
                     className={classes.subtitle}
                     variant="body1"
                   >
-                    Use your work email to create new account... it's free.
+                    Use seu e-mail para criar uma nova conta.
                   </Typography>
                   <div className={classes.fields}>
                     <TextField
                       className={classes.textField}
-                      label="First name"
+                      label="Nome"
                       name="firstName"
                       onChange={event =>
                         this.handleFieldChange('firstName', event.target.value)
@@ -232,7 +240,7 @@ class SignUp extends Component {
                     )}
                     <TextField
                       className={classes.textField}
-                      label="Last name"
+                      label="Sobrenome"
                       onChange={event =>
                         this.handleFieldChange('lastName', event.target.value)
                       }
@@ -249,7 +257,7 @@ class SignUp extends Component {
                     )}
                     <TextField
                       className={classes.textField}
-                      label="Email address"
+                      label="E-mail"
                       name="email"
                       onChange={event =>
                         this.handleFieldChange('email', event.target.value)
@@ -267,7 +275,7 @@ class SignUp extends Component {
                     )}
                     <TextField
                       className={classes.textField}
-                      label="Password"
+                      label="Senha"
                       onChange={event =>
                         this.handleFieldChange('password', event.target.value)
                       }
@@ -297,12 +305,12 @@ class SignUp extends Component {
                         className={classes.policyText}
                         variant="body1"
                       >
-                        I have read the &nbsp;
+                        Li e concordo com os&nbsp;
                         <Link
                           className={classes.policyUrl}
                           to="#"
                         >
-                          Terms and Conditions
+                          Termos e Condições
                         </Link>
                         .
                       </Typography>
@@ -335,19 +343,19 @@ class SignUp extends Component {
                       size="large"
                       variant="contained"
                     >
-                      Sign up now
+                      Criar Nova Conta
                     </Button>
                   )}
                   <Typography
                     className={classes.signIn}
                     variant="body1"
                   >
-                    Have an account?{' '}
+                    Já possui uma conta?{' '}
                     <Link
                       className={classes.signInUrl}
                       to="/sign-in"
                     >
-                      Sign In
+                      Entrar
                     </Link>
                   </Typography>
                 </form>

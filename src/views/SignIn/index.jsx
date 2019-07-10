@@ -67,7 +67,7 @@ class SignIn extends Component {
     const { values } = this.state;
 
     const newState = { ...this.state };
-    const errors = validate(values, schema);
+    const errors = validate(values, schema, { fullMessages: false });
 
     newState.errors = errors || {};
     newState.isValid = errors ? false : true;
@@ -183,15 +183,14 @@ class SignIn extends Component {
               <div className={classes.contentBody}>
                 <form className={classes.form}>
                   <Typography
-                    className={classes.title}
                     variant="h2"
                   >
-                    Sign in
+                    Entrar
                   </Typography>
                   <div className={classes.fields}>
                     <TextField
                       className={classes.textField}
-                      label="Email address"
+                      label="E-mail"
                       name="email"
                       onChange={event =>
                         this.handleFieldChange('email', event.target.value)
@@ -210,7 +209,7 @@ class SignIn extends Component {
                     )}
                     <TextField
                       className={classes.textField}
-                      label="Password"
+                      label="Senha"
                       name="password"
                       onChange={event =>
                         this.handleFieldChange('password', event.target.value)
@@ -247,19 +246,19 @@ class SignIn extends Component {
                       size="large"
                       variant="contained"
                     >
-                      Sign in now
+                      Entrar
                     </Button>
                   )}
                   <Typography
                     className={classes.signUp}
                     variant="body1"
                   >
-                    Don't have an account?{' '}
+                    Não tem uma conta?{' '}
                     <Link
                       className={classes.signUpUrl}
                       to="/sign-up"
                     >
-                      Sign up
+                      Cadastre-se
                     </Link>
                   </Typography>
                 </form>

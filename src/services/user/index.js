@@ -48,3 +48,16 @@ export const getUser = id => {
     }, 500);
   });
 };
+
+/**
+ * Cadastra um novo usuário.
+ *
+ * @param user any
+ */
+export const signUp = (user)  => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(user);
+    }, 1500);
+  });
+}

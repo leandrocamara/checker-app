@@ -46,7 +46,7 @@ export default theme => ({
   contentHeader: {
     display: 'flex',
     alignItems: 'center',
-    paddingTop: theme.spacing.unit * 5,
+    paddingTop: theme.spacing.unit * 1,
     paddingBototm: theme.spacing.unit * 2,
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2
@@ -66,15 +66,11 @@ export default theme => ({
   form: {
     paddingLeft: '100px',
     paddingRight: '100px',
-    paddingBottom: '125px',
     flexBasis: '700px',
     [theme.breakpoints.down('sm')]: {
       paddingLeft: theme.spacing.unit * 2,
       paddingRight: theme.spacing.unit * 2
     }
-  },
-  title: {
-    marginTop: theme.spacing.unit * 3
   },
   subtitle: {
     color: theme.palette.text.secondary,
