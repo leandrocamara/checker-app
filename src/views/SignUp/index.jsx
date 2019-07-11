@@ -133,7 +133,6 @@ class SignUp extends Component {
   };
 
   render() {
-    const { classes } = this.props;
     const {
       values,
       touched,
@@ -142,17 +141,12 @@ class SignUp extends Component {
       submitError,
       isLoading
     } = this.state;
-
-    const showFirstNameError =
-      touched.firstName && errors.firstName ? errors.firstName[0] : false;
-    const showLastNameError =
-      touched.lastName && errors.lastName ? errors.lastName[0] : false;
-    const showEmailError =
-      touched.email && errors.email ? errors.email[0] : false;
-    const showPasswordError =
-      touched.password && errors.password ? errors.password[0] : false;
-    const showPolicyError =
-      touched.policy && errors.policy ? errors.policy[0] : false;
+    const { classes } = this.props;
+    const showEmailError = touched.email && errors.email ? errors.email[0] : false;
+    const showPolicyError = touched.policy && errors.policy ? errors.policy[0] : false;
+    const showLastNameError = touched.lastName && errors.lastName ? errors.lastName[0] : false;
+    const showPasswordError = touched.password && errors.password ? errors.password[0] : false;
+    const showFirstNameError =  touched.firstName && errors.firstName ? errors.firstName[0] : false;
 
     return (
       <div className={classes.root}>
@@ -171,7 +165,7 @@ class SignUp extends Component {
                   className={classes.quoteText}
                   variant="h3"
                 >
-                  "Ferramenta boa e prática. O API fácil de usar, o ótimo widget de formulário e a
+                  "Ferramenta boa e prática. API fácil de usar, ótimo widget de formulário e a
                   interface simples tornam essa ferramenta um grande achado. E o preço é muito bom também!"
                 </Typography>
                 <div className={classes.person}>

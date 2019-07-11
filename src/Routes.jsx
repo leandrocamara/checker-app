@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import SignIn from './views/SignIn';
 import SignUp from './views/SignUp';
 import NotFound from './views/NotFound';
+import Dashboard from './views/Dashboard';
 
 export default class Routes extends Component {
   render() {
@@ -25,6 +26,11 @@ export default class Routes extends Component {
           component={SignUp}
           exact
           path="/sign-up"
+        />
+        <Route
+          component={Dashboard}
+          exact
+          path="/dashboard"
         />
         <Route
           component={NotFound}

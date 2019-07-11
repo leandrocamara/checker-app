@@ -115,7 +115,6 @@ class SignIn extends Component {
   };
 
   render() {
-    const { classes } = this.props;
     const {
       values,
       touched,
@@ -124,7 +123,7 @@ class SignIn extends Component {
       submitError,
       isLoading
     } = this.state;
-
+    const { classes } = this.props;
     const showEmailError = touched.email && errors.email;
     const showPasswordError = touched.password && errors.password;
 
