@@ -22,7 +22,7 @@ import { Paper } from 'components';
 // Component styles
 import styles from './styles';
 
-class Users extends Component {
+class Emails extends Component {
   render() {
     const { classes, className, ...rest } = this.props;
 
@@ -39,13 +39,13 @@ class Users extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL USERS
+              TOTAL EMAILS
             </Typography>
             <Typography
               className={classes.value}
               variant="h3"
             >
-              1600
+              96
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
@@ -64,7 +64,7 @@ class Users extends Component {
             className={classes.caption}
             variant="caption"
           >
-            Since last month
+            Desde o último mês
           </Typography>
         </div>
       </Paper>
@@ -72,9 +72,9 @@ class Users extends Component {
   }
 }
 
-Users.propTypes = {
+Emails.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Users);
+export default withStyles(styles)(Emails);

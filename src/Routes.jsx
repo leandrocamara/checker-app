@@ -5,7 +5,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 // Views
 import SignIn from './views/SignIn';
 import SignUp from './views/SignUp';
-import NotFound from './views/NotFound';
 import Dashboard from './views/Dashboard';
 
 export default class Routes extends Component {
@@ -32,12 +31,7 @@ export default class Routes extends Component {
           exact
           path="/dashboard"
         />
-        <Route
-          component={NotFound}
-          exact
-          path="/not-found"
-        />
-        <Redirect to="/not-found" />
+        <Redirect to="/sign-in" />
       </Switch>
     );
   }

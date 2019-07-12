@@ -30,7 +30,6 @@ import {
   Portlet,
   PortletHeader,
   PortletLabel,
-  PortletToolbar,
   PortletContent,
   Status
 } from 'components';
@@ -44,7 +43,7 @@ const statusColors = {
   refund: 'danger'
 };
 
-class OrdersTable extends Component {
+class EmailsTable extends Component {
   signal = false;
 
   state = {
@@ -100,19 +99,9 @@ class OrdersTable extends Component {
       <Portlet className={rootClassName}>
         <PortletHeader noDivider>
           <PortletLabel
-            subtitle={`${ordersTotal} in total`}
-            title="Latest orders"
+            subtitle={`${ordersTotal} no total`}
+            title="E-mails validados"
           />
-          <PortletToolbar>
-            <Button
-              className={classes.newEntryButton}
-              color="primary"
-              size="small"
-              variant="outlined"
-            >
-              New entry
-            </Button>
-          </PortletToolbar>
         </PortletHeader>
         <PerfectScrollbar>
           <PortletContent
@@ -128,8 +117,6 @@ class OrdersTable extends Component {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Order ID</TableCell>
-                    <TableCell align="left">Customer</TableCell>
                     <TableCell
                       align="left"
                       sortDirection="desc"
@@ -142,11 +129,12 @@ class OrdersTable extends Component {
                           active
                           direction="desc"
                         >
-                          Date
+                          Data
                         </TableSortLabel>
                       </Tooltip>
                     </TableCell>
-                    <TableCell align="left">Status</TableCell>
+                    <TableCell align="left">Situação</TableCell>
+                    <TableCell align="left">E-mail</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -156,10 +144,6 @@ class OrdersTable extends Component {
                       hover
                       key={order.id}
                     >
-                      <TableCell>{order.id}</TableCell>
-                      <TableCell className={classes.customerCell}>
-                        {order.customer.name}
-                      </TableCell>
                       <TableCell>
                         {moment(order.createdAt).format('DD/MM/YYYY')}
                       </TableCell>
@@ -173,6 +157,9 @@ class OrdersTable extends Component {
                           {order.status}
                         </div>
                       </TableCell>
+                      <TableCell className={classes.customerCell}>
+                        {order.customer.name}
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -185,9 +172,9 @@ class OrdersTable extends Component {
   }
 }
 
-OrdersTable.propTypes = {
+EmailsTable.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(OrdersTable);
+export default withStyles(styles)(EmailsTable);

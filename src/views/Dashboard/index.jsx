@@ -13,7 +13,7 @@ import { Grid } from '@material-ui/core';
 import { Dashboard as DashboardLayout } from 'layouts';
 
 // Custom components
-import { OrdersTable, AccountDetails, Users, Progress } from './components';
+import { CheckEmail, Emails, EmailsTable, Progress } from './components';
 
 // Component styles
 const styles = theme => ({
@@ -43,7 +43,7 @@ class Dashboard extends Component {
               xl={6}
               xs={12}
             >
-              <AccountDetails />
+              <CheckEmail />
               <Grid
                 container
                 spacing={2}
@@ -55,7 +55,7 @@ class Dashboard extends Component {
                   xl={6}
                   xs={12}
                 >
-                  <Users className={classes.item} />
+                  <Emails className={classes.item} />
                 </Grid>
                 <Grid
                   item
@@ -75,7 +75,7 @@ class Dashboard extends Component {
               xl={6}
               xs={12}
             >
-              <OrdersTable className={classes.item} />
+              <EmailsTable className={classes.item} />
             </Grid>
           </Grid>
         </div>

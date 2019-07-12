@@ -1,4 +1,4 @@
-export { default as Users } from './Users';
+export { default as Emails } from './Emails';
 export { default as Progress } from './Progress';
-export { default as OrdersTable } from './OrdersTable';
-export { default as AccountDetails } from './AccountDetails';
+export { default as CheckEmail } from './CheckEmail';
+export { default as EmailsTable } from './EmailsTable';

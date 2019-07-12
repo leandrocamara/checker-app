@@ -36,7 +36,7 @@ class Progress extends Component {
               className={classes.title}
               variant="body2"
             >
-              PROGRESS
+              VÁLIDOS
             </Typography>
             <Typography
               className={classes.value}

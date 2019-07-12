@@ -11,6 +11,7 @@ export default theme => ({
     marginRight: theme.spacing.unit * 3
   },
   portletFooter: {
+    textAlign: 'right',
     paddingLeft: theme.spacing.unit * 3,
     paddingRight: theme.spacing.unit * 3,
     paddingTop: theme.spacing.unit * 2,

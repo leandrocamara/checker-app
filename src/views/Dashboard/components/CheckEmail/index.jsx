@@ -32,7 +32,7 @@ import schema from './schema';
 // Service methods
 import { checkEmail } from 'services/email';
 
-class Account extends Component {
+class CheckEmail extends Component {
   state = {
     values: {
       email: ''
@@ -181,7 +181,7 @@ class Account extends Component {
   }
 }
 
-Account.propTypes = {
+CheckEmail.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
@@ -190,4 +190,4 @@ Account.propTypes = {
 export default compose(
   withRouter,
   withStyles(styles)
-)(Account);
+)(CheckEmail);
