@@ -11,7 +11,6 @@ import { withStyles } from '@material-ui/core';
 
 // Material components
 import {
-  Button,
   CircularProgress,
   Table,
   TableBody,
@@ -23,7 +22,7 @@ import {
 } from '@material-ui/core';
 
 // Shared services
-import { getOrders } from 'services/order';
+import { getEmails } from 'services/email';
 
 // Shared components
 import {
@@ -48,22 +47,20 @@ class EmailsTable extends Component {
 
   state = {
     isLoading: false,
-    limit: 10,
-    orders: [],
-    ordersTotal: 0
+    emails: [],
+    emailsTotal: 0
   };
 
-  async getOrders(limit) {
+  async getEmails() {
     try {
       this.setState({ isLoading: true });
 
-      const { orders, ordersTotal } = await getOrders(limit);
+      const emails = await getEmails();
 
       if (this.signal) {
         this.setState({
           isLoading: false,
-          orders,
-          ordersTotal
+          emails
         });
       }
     } catch (error) {
@@ -78,10 +75,7 @@ class EmailsTable extends Component {
 
   componentDidMount() {
     this.signal = true;
-
-    const { limit } = this.state;
-
-    this.getOrders(limit);
+    this.getEmails();
   }
 
   componentWillUnmount() {
@@ -90,16 +84,16 @@ class EmailsTable extends Component {
 
   render() {
     const { classes, className } = this.props;
-    const { isLoading, orders, ordersTotal } = this.state;
+    const { isLoading, emails, emailsTotal } = this.state;
 
     const rootClassName = classNames(classes.root, className);
-    const showOrders = !isLoading && orders.length > 0;
+    const showEmails = !isLoading && emails.length > 0;
 
     return (
       <Portlet className={rootClassName}>
         <PortletHeader noDivider>
           <PortletLabel
-            subtitle={`${ordersTotal} no total`}
+            subtitle={`${emailsTotal} no total`}
             title="E-mails validados"
           />
         </PortletHeader>
@@ -113,7 +107,7 @@ class EmailsTable extends Component {
                 <CircularProgress />
               </div>
             )}
-            {showOrders && (
+            {showEmails && (
               <Table>
                 <TableHead>
                   <TableRow>
@@ -138,27 +132,27 @@ class EmailsTable extends Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {orders.map(order => (
+                  {emails.map(email => (
                     <TableRow
                       className={classes.tableRow}
                       hover
-                      key={order.id}
+                      key={email.id}
                     >
                       <TableCell>
-                        {moment(order.createdAt).format('DD/MM/YYYY')}
+                        {moment(email.createdAt).format('DD/MM/YYYY')}
                       </TableCell>
                       <TableCell>
                         <div className={classes.statusWrapper}>
                           <Status
                             className={classes.status}
-                            color={statusColors[order.status]}
+                            color={statusColors[email.situacao]}
                             size="sm"
                           />
-                          {order.status}
+                          {email.situacao}
                         </div>
                       </TableCell>
                       <TableCell className={classes.customerCell}>
-                        {order.customer.name}
+                        {email.descricao}
                       </TableCell>
                     </TableRow>
                   ))}

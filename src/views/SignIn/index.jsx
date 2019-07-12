@@ -101,7 +101,10 @@ class SignIn extends Component {
 
       this.setState({ isLoading: true });
 
-      await signIn(values.email, values.password);
+      await signIn({
+        email: values.email,
+        password: values.password
+      });
 
       localStorage.setItem('isAuthenticated', true);
 
