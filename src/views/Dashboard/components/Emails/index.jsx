@@ -22,8 +22,29 @@ import { Paper } from 'components';
 // Component styles
 import styles from './styles';
 
+// Shared services
+import { getTotalChecks } from 'services/email'
+
 class Emails extends Component {
+  state = {
+    total: 0
+  }
+
+  async getTotalChecks() {
+    try {
+      const total = await getTotalChecks()
+      this.setState({ total })
+    } catch (error) {
+      console.log(error.response.data.message)
+    }
+  }
+
+  componentDidMount() {
+    this.getTotalChecks()
+  }
+
   render() {
+    const { total } = this.state
     const { classes, className, ...rest } = this.props;
 
     const rootClassName = classNames(classes.root, className);
@@ -45,27 +66,12 @@ class Emails extends Component {
               className={classes.value}
               variant="h3"
             >
-              96
+              {total}
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
             <PeopleIcon className={classes.icon} />
           </div>
-        </div>
-        <div className={classes.footer}>
-          <Typography
-            className={classes.difference}
-            variant="body2"
-          >
-            <ArrowUpwardIcon />
-            16%
-          </Typography>
-          <Typography
-            className={classes.caption}
-            variant="caption"
-          >
-            Desde o último mês
-          </Typography>
         </div>
       </Paper>
     );

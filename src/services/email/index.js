@@ -20,3 +20,17 @@ export const getEmails = async () => {
       return []
     })
 }
+
+/**
+ * Retorna a lista de e-mails validados.
+ */
+export const getPercentValidsEmails = async () => {
+  return API.get('checks/progress').then(response => response.data.percentValidsEmails)
+}
+
+/**
+ * Retorna a quantidade total de e-mails validados.
+ */
+export const getTotalChecks = async () => {
+  return API.get('checks/total').then(response => response.data.total)
+}

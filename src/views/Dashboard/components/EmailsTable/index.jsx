@@ -66,7 +66,7 @@ class EmailsTable extends Component {
     return (
       <Portlet className={rootClassName}>
         <PortletHeader noDivider>
-          <PortletLabel subtitle={`${emails.length} no total`} title="E-mails validados"/>
+          <PortletLabel title="E-mails validados"/>
         </PortletHeader>
         <PerfectScrollbar>
           <PortletContent className={classes.portletContent} noPadding>
@@ -110,6 +110,9 @@ class EmailsTable extends Component {
                 </TableBody>
               </Table>
             )}
+            <PortletHeader noDivider>
+              <PortletLabel title={`${emails.length} no total`}/>
+            </PortletHeader>
           </PortletContent>
         </PerfectScrollbar>
       </Portlet>

@@ -1,50 +1,44 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 
 // Externals
-import classNames from 'classnames';
-import compose from 'recompose/compose';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import compose from 'recompose/compose'
 
 // Material helpers
-import { withStyles, withWidth } from '@material-ui/core';
+import { withStyles, withWidth } from '@material-ui/core'
 
 // Material components
-import { Drawer } from '@material-ui/core';
+import { Drawer } from '@material-ui/core'
 
 // Custom components
-import { Sidebar, Topbar, Footer } from './components';
+import { Sidebar, Topbar, Footer } from './components'
 
 // Component styles
-import styles from './styles';
+import styles from './styles'
 
 class Dashboard extends Component {
   constructor(props) {
-    super(props);
-
-    const isMobile = ['xs', 'sm', 'md'].includes(props.width);
-
-    this.state = {
-      isOpen: !isMobile
-    };
+    super(props)
+    const isMobile = ['xs', 'sm', 'md'].includes(props.width)
+    this.state = { isOpen: !isMobile }
   }
 
   handleClose = () => {
-    this.setState({ isOpen: false });
-  };
+    this.setState({ isOpen: false })
+  }
 
   handleToggleOpen = () => {
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen
-    }));
-  };
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }))
+  }
 
   render() {
-    const { classes, width, title, children } = this.props;
-    const { isOpen } = this.state;
+    const { isOpen } = this.state
+    const { classes, width, title, children } = this.props
 
-    const isMobile = ['xs', 'sm', 'md'].includes(width);
-    const shiftTopbar = isOpen && !isMobile;
-    const shiftContent = isOpen && !isMobile;
+    const isMobile = ['xs', 'sm', 'md'].includes(width)
+    const shiftTopbar = isOpen && !isMobile
+    const shiftContent = isOpen && !isMobile
 
     return (
       <Fragment>
@@ -74,7 +68,7 @@ class Dashboard extends Component {
           <Footer />
         </main>
       </Fragment>
-    );
+    )
   }
 }
 
@@ -84,9 +78,6 @@ Dashboard.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string,
   width: PropTypes.string.isRequired
-};
+}
 
-export default compose(
-  withStyles(styles),
-  withWidth()
-)(Dashboard);
+export default compose(withStyles(styles), withWidth())(Dashboard)

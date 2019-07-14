@@ -13,6 +13,13 @@ export const signIn = async (auth) => {
 }
 
 /**
+ * Retorna o usuário autenticado.
+ */
+export const getUserAuthenticated = async () => {
+  return API.get('users').then(response => response.data)
+}
+
+/**
  * Realiza o 'logout' do usuário.
  */
 export const signOut = async () => {
