@@ -1,33 +1,22 @@
-import React, { Component } from 'react';
-import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-
-// Externals
-import { Chart } from 'react-chartjs-2';
+import React, { Component } from 'react'
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
 // Material helpers
-import { ThemeProvider } from '@material-ui/styles';
-
-// ChartJS helpers
-import { chartjs } from './helpers';
+import { ThemeProvider } from '@material-ui/styles'
 
 // Theme
-import theme from './theme';
+import theme from './theme'
 
 // Styles
-import 'react-perfect-scrollbar/dist/css/styles.css';
-import './assets/scss/index.scss';
+import 'react-perfect-scrollbar/dist/css/styles.css'
+import './assets/scss/index.scss'
 
 // Routes
-import Routes from './Routes';
+import Routes from './Routes'
 
 // Browser history
-const browserHistory = createBrowserHistory();
-
-// Configure ChartJS
-Chart.helpers.extend(Chart.elements.Rectangle.prototype, {
-  draw: chartjs.draw
-});
+const browserHistory = createBrowserHistory()
 
 export default class App extends Component {
   render() {
@@ -37,6 +26,6 @@ export default class App extends Component {
           <Routes />
         </Router>
       </ThemeProvider>
-    );
+    )
   }
 }
