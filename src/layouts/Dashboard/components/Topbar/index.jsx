@@ -26,6 +26,9 @@ import {
 // Component styles
 import styles from './styles';
 
+// Service methods
+import { removeToken } from 'services/auth'
+
 class Topbar extends Component {
   signal = true;
 
@@ -40,7 +43,7 @@ class Topbar extends Component {
   handleSignOut = () => {
     const { history } = this.props;
 
-    localStorage.removeItem('token');
+    removeToken();
     history.push('/sign-in');
   };
 

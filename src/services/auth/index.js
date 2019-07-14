@@ -7,18 +7,21 @@ import API from 'services/api'
  */
 export const signIn = async (auth) => {
   // auth.password = atob(auth.password);
-  return API.post('users/auth', auth)
+  return API.post('users/auth', auth).then(response => {
+    localStorage.setItem('token', response.data.accessToken)
+  })
 }
 
 /**
  * Realiza o 'logout' do usuário.
  */
 export const signOut = async () => {
-  return API.get('auth/logout')
-    .then(response => response.data)
-    .catch(error => { // @TODO - Tratar após a implementação da API
-      console.log(error)
-    });
+  return new Promise(resolve => {
+    setTimeout(() => {
+      removeToken()
+      resolve(true)
+    }, 1500)
+  })
 }
 
 /**
@@ -33,4 +36,11 @@ export const getToken = () => {
  */
 export const isAuthenticated = () => {
   return (getToken() !== null)
+}
+
+/**
+ * Remove o Token armazenado no LocalStorage.
+ */
+export const removeToken = () => {
+  return localStorage.removeItem('token')
 }

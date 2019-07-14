@@ -11,14 +11,7 @@ import compose from 'recompose/compose'
 import { withStyles } from '@material-ui/core'
 
 // Material components
-import {
-  Grid,
-  Button,
-  IconButton,
-  CircularProgress,
-  TextField,
-  Typography
-} from '@material-ui/core'
+import { Grid, Button, IconButton, CircularProgress, TextField, Typography } from '@material-ui/core'
 
 // Material icons
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons'
@@ -30,7 +23,7 @@ import styles from './styles'
 import schema from './schema'
 
 // Service methods
-import { signIn } from 'services/auth'
+import { signIn, removeToken } from 'services/auth'
 
 class SignIn extends Component {
   state = {
@@ -40,6 +33,10 @@ class SignIn extends Component {
     isValid: false,
     isLoading: false,
     submitError: null
+  }
+
+  componentDidMount = () => {
+    removeToken()
   }
 
   /**
@@ -91,12 +88,11 @@ class SignIn extends Component {
 
       this.setState({ isLoading: true })
 
-      await signIn({ email: values.email, password: values.password }).then(response => {
-        localStorage.setItem('token', response.data.accessToken)
-        history.push('/dashboard')
-      }).catch(error => {
+      await signIn(values).catch(error => {
         throw new Error(error.response.data.message)
       })
+
+      history.push('/dashboard')
     } catch (error) {
       // console.log(error.message)
       this.setState({ isLoading: false, serviceError: error })

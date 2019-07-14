@@ -5,10 +5,6 @@ import API from 'services/api';
  *
  * @param user any
  */
-export const signUp = (user)  => {
-  return API.post('user/', user)
-    .then(response => response.data)
-    .catch(error => { // @TODO - Tratar após a implementação da API
-      console.log(error)
-    });
+export const signUp = (user) => {
+  return API.post('users', user)
 }
