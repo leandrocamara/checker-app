@@ -28,12 +28,17 @@ import { TeamSection, WorkSection, ProductSection } from './components/Sections'
 const dashboardRoutes = [];
 
 class Home extends Component {
+  handleSignUp = () => {
+    const { history } = this.props
+    history.push('/sign-up')
+  }
+
   render() {
     const { classes, ...rest } = this.props;
     return (
       <div>
         <Header
-          brand="Material Kit React"
+          brand="TheChecker"
           changeColorOnScroll={{
             height: 400,
             color: 'white'
@@ -48,23 +53,25 @@ class Home extends Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem  md={6} sm={12} xs={12}>
-                <h1 className={classes.title}>Your Story Starts With Us.</h1>
+                <h2 className={classes.title}>
+                  O serviço de verificação de<br/>e-mail com o melhor<br/>custo-benefício.
+                </h2>
                 <h4>
-                  Every landing page needs a small description after the big
-                  bold title, that's why we added this text here. Add here
-                  all the information that can make you or your product create
-                  the first impression.
+                  Livre-se dos problemas de entrega e de endereços de e-mail
+                  ruins com o nosso serviço de alta qualidade e de ótimo preço.
+                  Verificação e validação de e-mails que melhoram a qualidade dos
+                  seus dados e o ROI de suas campanhas.
                 </h4>
                 <br />
                 <Button
                   color="danger"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
+                  onClick={this.handleSignUp}
                   rel="noopener noreferrer"
                   size="lg"
                   target="_blank"
                 >
                   <i className="fas fa-play" />
-                  Watch video
+                  Experimente
                 </Button>
               </GridItem>
             </GridContainer>

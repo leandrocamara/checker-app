@@ -53,6 +53,12 @@ const headerLinksStyle = theme => ({
   listItemText: {
     padding: '0 !important'
   },
+  link: {
+    color: 'white',
+    '&:hover,&:focus': {
+      color: 'white'
+    },
+  },
   navLink: {
     color: 'inherit',
     position: 'relative',

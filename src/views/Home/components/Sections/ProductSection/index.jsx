@@ -38,13 +38,11 @@ class ProductSection extends React.Component {
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem md={8} sm={12} xs={12}>
-            <h2 className={classes.title}>Let{'\''}s talk product</h2>
+            <h2 className={classes.title}>O verificador de e-mails #1</h2>
             <h5 className={classes.description}>
-              This is the paragraph where you can write more details about your
-              product. Keep you user engaged by providing meaningful
-              information. Remember that by this time, the user is curious,
-              otherwise he wouldn{'\''}t scroll to get here. Add a button if you
-              want the user to see more.
+              Baseados nos últimos 100 milhões de e-mails verificamos que
+              em 2018, 23,51% iriam apresentar falha de envio. Você usou algum serviço de limpeza
+              de lista de contatos recentemente?
             </h5>
           </GridItem>
         </GridContainer>
@@ -52,28 +50,28 @@ class ProductSection extends React.Component {
           <GridContainer>
             <GridItem md={4} sm={12} xs={12}>
               <InfoArea
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                description="Os E-mails validados pelo TheChecker trazem maior entregabilidade, convertem em mais vendas e aumentam o retorno do investimento das suas campanhas."
                 icon={Chat}
                 iconColor="info"
-                title="Free Chat"
+                title="Aumente o ROI das campanhas"
                 vertical
               />
             </GridItem>
             <GridItem md={4} sm={12} xs={12}>
               <InfoArea
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                description="1 a cada 5 e-mails não é entregue devido a problemas na reputação relacionados com IP e domínios. Proteja-se usando o melhor serviço de limpeza de lista de contatos."
                 icon={VerifiedUser}
                 iconColor="success"
-                title="Verified Users"
+                title="Proteja a Reputação do Remetente"
                 vertical
               />
             </GridItem>
             <GridItem md={4} sm={12} xs={12}>
               <InfoArea
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                description="Até mesmo uma pequena taxa de 5% de bounce pode te causar um bloqueio pelo ESP. Nosso serviço de limpeza de lista de contatos individual ou em massa te protege para aumentar a sua entregabilidade."
                 icon={Fingerprint}
                 iconColor="danger"
-                title="Fingerprint"
+                title="Evite Bloqueios pelos ESP"
                 vertical
               />
             </GridItem>

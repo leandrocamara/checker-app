@@ -1,48 +1,28 @@
-/*!
 
-=========================================================
-* Material Kit React - v1.7.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/material-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React from 'react';
+import React from 'react'
 // nodejs library to set properties for components
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 // @material-ui/core components
-import withStyles from '@material-ui/core/styles/withStyles';
-
-// @material-ui/icons
+import withStyles from '@material-ui/core/styles/withStyles'
 
 // core components
-import Button from 'components/CustomButtons';
-import CustomInput from 'components/CustomInput';
-import { GridItem, GridContainer } from 'components/Grid';
+import Button from 'components/CustomButtons'
+import CustomInput from 'components/CustomInput'
+import { GridItem, GridContainer } from 'components/Grid'
 
-import workStyle from 'assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx';
+import workStyle from 'assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx'
 
 class WorkSection extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem cs={12} md={8} sm={12}>
-            <h2 className={classes.title}>Work with us</h2>
+            <h2 className={classes.title}>Fale conosco</h2>
             <h4 className={classes.description}>
-              Divide details about your product or agency work into parts. Write
-              a few lines about each one and contact us about any further
-              collaboration. We will responde get back to you in a couple of
-              hours.
+              Em que podemos ajudar? Se você tem dúvidas, sugestões ou críticas
+              referentes à marca ou aos nossos produtos, nos envie uma mensagem.
             </h4>
             <form>
               <GridContainer>
@@ -52,7 +32,7 @@ class WorkSection extends React.Component {
                       fullWidth: true
                     }}
                     id="name"
-                    labelText="Your Name"
+                    labelText="Nome"
                   />
                 </GridItem>
                 <GridItem md={6} sm={12} xs={12}>
@@ -61,7 +41,7 @@ class WorkSection extends React.Component {
                       fullWidth: true
                     }}
                     id="email"
-                    labelText="Your Email"
+                    labelText="E-mail"
                   />
                 </GridItem>
                 <CustomInput
@@ -74,7 +54,7 @@ class WorkSection extends React.Component {
                     multiline: true,
                     rows: 5
                   }}
-                  labelText="Your Message"
+                  labelText="Mensagem"
                 />
                 <GridContainer justify="center">
                   <GridItem
@@ -83,7 +63,7 @@ class WorkSection extends React.Component {
                     sm={12}
                     xs={12}
                   >
-                    <Button color="primary">Send Message</Button>
+                    <Button color="primary">Enviar Mensagem</Button>
                   </GridItem>
                 </GridContainer>
               </GridContainer>
@@ -91,12 +71,12 @@ class WorkSection extends React.Component {
           </GridItem>
         </GridContainer>
       </div>
-    );
+    )
   }
 }
 
 WorkSection.propTypes = {
   classes: PropTypes.object
-};
+}
 
-export default withStyles(workStyle)(WorkSection);
+export default withStyles(workStyle)(WorkSection)

@@ -18,10 +18,6 @@ import { GridItem, GridContainer } from 'components/Grid'
 
 import teamStyle from 'assets/jss/material-kit-react/views/landingPageSections/teamStyle.jsx'
 
-// import team1 from '/images/faces/avatar.jpg'
-// import team3 from '/images/faces/kendall.jpg'
-// import team2 from '/images/faces/christian.jpg'
-
 class TeamSection extends React.Component {
   render() {
     const { classes } = this.props;
@@ -32,7 +28,7 @@ class TeamSection extends React.Component {
     );
     return (
       <div className={classes.section}>
-        <h2 className={classes.title}>Here is our team</h2>
+        <h2 className={classes.title}>O que Dizem Nossos Clientes?</h2>
         <div>
           <GridContainer>
             <GridItem md={4} sm={12} xs={12}>
@@ -43,14 +39,15 @@ class TeamSection extends React.Component {
                 <h4 className={classes.cardTitle}>
                   Gigi Hadid
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
+                  <small className={classes.smallTitle}>Diretora</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                    Nós migramos para o TheChecker em 2017. Precisávamos nos
+                    certificar que as campanhas de marketing dos nossos clientes
+                    atingiam as melhores taxas de entregabilidade. Depois de usar
+                    vários serviços com resultados variáveis, descobrimos que o
+                    TheChecker é o melhor. Rápido, preciso e fácil de usar.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -86,14 +83,13 @@ class TeamSection extends React.Component {
                 <h4 className={classes.cardTitle}>
                   Christian Louboutin
                   <br />
-                  <small className={classes.smallTitle}>Designer</small>
+                  <small className={classes.smallTitle}>CTO</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                    A melhor! É fácil de usar e os resultados são ótimos.
+                    Tudo funciona perfeitamente. Nós conseguimos reduzir as
+                    reclamações sobre e-mails de marketing e falsos registros.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -122,14 +118,14 @@ class TeamSection extends React.Component {
                 <h4 className={classes.cardTitle}>
                   Kendall Jenner
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
+                  <small className={classes.smallTitle}>Especialista em Marketing Digital</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                    Aqui na LeadLovers estamos sempre buscando ferramentas
+                    inteligentes que ajudam a melhorar ainda mais nossa entregabilidade
+                    de e-mails. Ao integrar o TheChecker ao nosso maior fluxo de aquisição,
+                    conseguimos resultados incríveis na prevenção de problemas com nossa reputação.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>

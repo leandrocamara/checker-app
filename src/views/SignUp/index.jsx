@@ -45,7 +45,7 @@ class SignUp extends Component {
    */
   handleBack = () => {
     const { history } = this.props
-    history.goBack()
+    history.push('/')
   }
 
   /**
